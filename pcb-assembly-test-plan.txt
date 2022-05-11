@@ -1,0 +1,12 @@
+Requirements:
+1. Windows or Linux PC
+2. A working micro USB cable
+3. Putty on Windows or Minicom on Linux
+
+1. Plug in Micro USB cable to Micro USB connector and into a PC
+2. Measure voltage at J7. It should measure a little under 12V
+3. Measure voltage between pins 1 and 5 on J8. It should measure 3.3V
+4. The device should show up as a USB to serial device with a CP2104 USB to UART.
+5. Open a terminal application, i.e. Putty on Windows or Minicom on Linux
+6. Set the baud rate to 115200
+7. Press SW1. A message should be displayed. The error message is expected.
