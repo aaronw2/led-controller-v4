@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 31,
+    "active_layer": 37,
     "active_layer_preset": "",
     "auto_track_width": false,
     "hidden_nets": [],
@@ -75,12 +75,12 @@
         "name": "led-controller-wrover32.kicad_pcb",
         "open": false,
         "window": {
-          "display": 1,
+          "display": 0,
           "maximized": false,
-          "pos_x": 3922,
-          "pos_y": 1420,
-          "size_x": 2101,
-          "size_y": 1682
+          "pos_x": 824,
+          "pos_y": 1552,
+          "size_x": 2666,
+          "size_y": 1439
         }
       },
       {
@@ -89,8 +89,8 @@
         "window": {
           "display": 1,
           "maximized": false,
-          "pos_x": 4906,
-          "pos_y": 1568,
+          "pos_x": 4269,
+          "pos_y": 1486,
           "size_x": 2746,
           "size_y": 1568
         }
