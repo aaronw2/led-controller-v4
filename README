@@ -5,8 +5,8 @@ IO2: 5V enable J107 pin 1
 IO3: Fan PWM
 IO4: 5V I/O J108 pin 8
 IO5: 5V I/O J108 pin 7
-IO6: 5V output J108 pin 6
-IO7: 5V output J108 pin 5
+IO6: 5V I/O J108 pin 6
+IO7: 5V I/O J108 pin 5
 IO8: I2S1 BCLK (stereo speaker J304)
 IO9: Micro SD D1
 IO10: Micro SD D0
@@ -14,8 +14,8 @@ IO11: Micro SD CLK
 IO12: Micro SD CMD
 IO13: Micro SD D3
 IO14: Micro SD D2
-IO15: 5v output J108 pin 4
-IO16: 5v output J108 pin 3
+IO15: 5v I/O J108 pin 4
+IO16: 5v I/O J108 pin 3
 IO17: I2S1 WSEL (stereo speaker J304)
 IO18: I2S1 DOUT (stereo speaker J304)
 IO19: USB D-
@@ -45,3 +45,134 @@ IO45: 0 = 3.3V, 1 = 1.8V
 
 JTAG:
 IO3:  0 = JTAG pins, 1 = USB Serial/JTAG
+
+Reset:
+The reset signal is driven by the reset button, Q101 via the serial
+port RTS/DTR signals, and from the power good output of the 3.3V power supply.
+The reset signal drives the reset inputs of the BNO085 motion controller,
+the PCA9575 GPIO expander, and the ESP32 S3.
+
+Power:
+All power is supplied at 5V from either J105, micro USB J104, or USB J102.
+J105 is the preferred power source.  5V is converted to 3.3V by the
+MPM3810GQB-33 module which provides up to 1.2A.  The power good signal from
+this module drives the reset signal so the chip will not be brought out of
+reset until after the 3.3V has stabilized.  The 12V supply can provide up to
+500ma and by default is disabled until IO46 is pulled high.  IO46 is low by
+default since it is used for bootstrapping.  This is separate from the fan
+PWM which is cointrolled by IO3.
+
+While the board has been configured to handle at least 2A of power at 5V,
+this board is not designed to provide power to a significant number of LEDs
+or devices.  It is expected that they will have their own power supply with
+a common ground.
+
+The 5V output of J106 is controlled by IO2.
+
+Fans:
+This board provides two outputs for fans.  The first, J201, provides 12V
+without PWM support whenever IO46 is pulled high.  Connector J401 provides
+both 5V and 12V and both supplies are modulated or controlled by GPIO IO3
+which must be pulled high.  IO3 controls both 5V and 12V simultaneously.
+The fan outputs have diodes to protect against any back EMF.
+
+I2C:
+The I2C bus uses 2.2K pull-up resistors instead of the more traditional 4.7
+or 10K.  This is due to the fact that the i2c bus can be exported off of the
+board and having stronger pull-ups should provide better signal integrity.
+There are three interrupt lines that are supported.  Internally, i2c is
+used by the GPIO expander, the motion sensor, and the I2S stereo audio
+amplifier.
+
+5V signalling:
+Six GPIOs pass through open-collector level shifters with pull-up resistors.
+These may be used to drive NeoPixels or other 5V devices and are
+bi-directional.  All 5V I/Os also have a 33 ohm resistor in series to help
+reduce reflections.
+
+Status LED:
+A WS2812 compatible status LED is present and is driven by IO21.  The output
+of this LED may be used to drive additional LEDs and is connected to J103.
+
+USB:
+The USB is connected to the ESP32 controller after passing through a protection
+and USB termination chip U101.
+
+Buttons:
+Reset - Pulls the reset signal low
+Prog - Pulls IO0 low to boot into programming mode.  Since IO0 is also the
+INT signal it can be used to generate an interrupt at runtime.  Note that
+INT is shared with the I2C GPIO expander.
+
+I2C GPIO Expander:
+A PCA9575HF provides 12 additional GPIO pins which may be configured for input
+or output.  They can also be configured to generate an interrupt on the INT
+signal (IO0).  The GPIO expander chip is also connected to the reset signal.
+
+Motion Controller/Accelerometer:
+A BNO085 9-axis accelerometer/gyroscope/compass/temperature sensor chip is
+provided for tracking motion.  This chip performs all the necessary
+calculations and offloads them from the ESP32.  It is connected via I2C and
+INT2.  The boot loader pin is also connected to a GPIO pin.
+
+I2C Addresses:
+PCA9575: 0x20
+BNO085 motion sensor: 0x29
+SSM2518CPZ: 0x36
+
+ESP32 GPIO pins by function:
+
+I2C:
+SCL: IO41
+SDA: IO42
+INT: IO0
+INT2: IO38
+INT3: IO42
+
+Microphone:
+I2S0_BCLK: IO45
+I2S0_WSEL: IO47
+I2S0_DIN:  IO48
+
+Amplifier:
+Power: IO1
+I2S1_BCLK: IO8
+I2S1_WSEL: IO17
+I2S1_DOUT: IO18
+
+Status LED:
+IO21
+
+MicroSD:
+CLK: IO11
+CMD: IO12
+D0:  IO10
+D1:  IO9
+D2:  IO14
+D3:  IO13
+
+12V Enable:
+EN: IO46
+
+Fan PWM:
+PWM: IO3
+
+Switched 5V:
+EN: IO2
+
+Motion Sensor:
+M_BOOT_LOAD: IO39
+Interrupt: INT2
+
+GPIO Expander:
+Interrupt: INT
+
+5V I/O Pins:
+IO4
+IO5
+IO6
+IO7
+IO15
+IO16
+
+Program: IO0, INT
