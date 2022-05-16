@@ -1,7 +1,7 @@
 ESP32-Wrover I/Os
 
 IO0: (/program), /INT
-IO2: 5V enable J107 pin 1
+IO2: BNO085 reset
 IO3: Fan PWM
 IO4: 5V I/O J108 pin 8
 IO5: 5V I/O J108 pin 7
@@ -50,7 +50,8 @@ Reset:
 The reset signal is driven by the reset button, Q101 via the serial
 port RTS/DTR signals, and from the power good output of the 3.3V power supply.
 The reset signal drives the reset inputs of the BNO085 motion controller,
-the PCA9575 GPIO expander, and the ESP32 S3.
+the PCA9575 GPIO expander, and the ESP32 S3.  Note that IO2 can also reset
+the BNO085 to support loading the bootloader from the ESP32.
 
 Power:
 All power is supplied at 5V from either J105, micro USB J104, or USB J102.
@@ -66,8 +67,6 @@ While the board has been configured to handle at least 2A of power at 5V,
 this board is not designed to provide power to a significant number of LEDs
 or devices.  It is expected that they will have their own power supply with
 a common ground.
-
-The 5V output of J106 is controlled by IO2.
 
 Fans:
 This board provides two outputs for fans.  The first, J201, provides 12V
@@ -157,12 +156,10 @@ EN: IO46
 Fan PWM:
 PWM: IO3
 
-Switched 5V:
-EN: IO2
-
 Motion Sensor:
 M_BOOT_LOAD: IO39
 Interrupt: INT2
+Reset: Reset and IO2
 
 GPIO Expander:
 Interrupt: INT
