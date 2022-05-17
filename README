@@ -59,7 +59,7 @@ J105 is the preferred power source.  5V is converted to 3.3V by the
 MPM3810GQB-33 module which provides up to 1.2A.  The power good signal from
 this module drives the reset signal so the chip will not be brought out of
 reset until after the 3.3V has stabilized.  The 12V supply can provide up to
-500ma and by default is disabled until IO46 is pulled high.  IO46 is low by
+1A and by default is disabled until IO46 is pulled high.  IO46 is low by
 default since it is used for bootstrapping.  This is separate from the fan
 PWM which is cointrolled by IO3.
 
@@ -73,7 +73,9 @@ This board provides two outputs for fans.  The first, J201, provides 12V
 without PWM support whenever IO46 is pulled high.  Connector J401 provides
 both 5V and 12V and both supplies are modulated or controlled by GPIO IO3
 which must be pulled high.  IO3 controls both 5V and 12V simultaneously.
-The fan outputs have diodes to protect against any back EMF.
+The fan outputs have diodes to protect against any back EMF.  The 12V comes
+from the same supply and is limited to 1 amp, however it is best to not test
+this.
 
 I2C:
 The I2C bus uses 2.2K pull-up resistors instead of the more traditional 4.7
