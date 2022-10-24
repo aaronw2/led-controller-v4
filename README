@@ -30,8 +30,8 @@ IO45: I2S0 BCLK (Microphone)
 IO46: 12V power supply enable high
 IO47: I2S0 WSEL (Microphone)
 IO48: I2S0 DIN (Microphone)
-RXD0: Serial port RX
-TXD0: Serial port TX
+RXD0: Serial port RX (can be GPIO)
+TXD0: Serial port TX (can be GPIO)
 EN: /RESET
 
 Bootstrap:
@@ -97,7 +97,7 @@ of this LED may be used to drive additional LEDs and is connected to J103.
 
 USB:
 The USB is connected to the ESP32 controller after passing through a protection
-and USB termination chip U101.
+and USB termination chip U101. USB can be used for JTAG and serial output.
 
 Buttons:
 Reset - Pulls the reset signal low
@@ -106,9 +106,17 @@ INT signal it can be used to generate an interrupt at runtime.  Note that
 INT is shared with the I2C GPIO expander.
 
 I2C GPIO Expander:
-A PCA9575HF provides 12 additional GPIO pins which may be configured for input
+A SX1509B provides 12 additional GPIO pins which may be configured for input
 or output.  They can also be configured to generate an interrupt on the INT
 signal (IO0).  The GPIO expander chip is also connected to the reset signal.
+This particular GPIO expander has numerous features which may be of use.
+It has support for driving LEDs and providing PWM and blink support.  Some
+GPIO pins can also "breathe" where they will fade in and out.  Both logrithmic
+and linear modes are supported.  It can also function as a keyboard scanner.
+Each pin can be input or output, or open drain.  Pull-up and pull-down resistors
+can also be configured.
+Drive strength and slew rate can also be configured.
+Interrupts can be generated on either the rising, falling, or both edges.
 
 Motion Controller/Accelerometer:
 A BNO085 9-axis accelerometer/gyroscope/compass/temperature sensor chip is
@@ -116,8 +124,13 @@ provided for tracking motion.  This chip performs all the necessary
 calculations and offloads them from the ESP32.  It is connected via I2C and
 INT2.  The boot loader pin is also connected to a GPIO pin.
 
+Temperature/Pressure/Humidity:
+A BME280 temperature, pressure, and humidity sensor is connected to the
+secondary I2C bus of the BNO085.  The BNO085 will periodically poll this
+and can use this to assist in detecting altitude.
+
 I2C Addresses:
-PCA9575: 0x20
+SX1509B: 0x3E
 BNO085 motion sensor: 0x29
 SSM2518CPZ: 0x36
 
@@ -131,15 +144,18 @@ INT2: IO38
 INT3: IO42
 
 Microphone:
+The microphone is wired for the left channel.
 I2S0_BCLK: IO45
 I2S0_WSEL: IO47
 I2S0_DIN:  IO48
 
 Amplifier:
+The stereo provides stereo output into 4 ohm speakers.
 Power: IO1
 I2S1_BCLK: IO8
 I2S1_WSEL: IO17
 I2S1_DOUT: IO18
+I2C address: 0x36
 
 Status LED:
 IO21
@@ -162,13 +178,17 @@ Motion Sensor:
 M_BOOT_LOAD: IO39
 Interrupt: INT2
 Reset: Reset and IO2
+I2C: 0x29
 
 GPIO Expander:
 Interrupt: INT
+I2C: 0x3E
 
-5V I/O Pins:
+3V I/O Pins:
 IO4
 IO5
+
+5V digital I/O Pins:
 IO6
 IO7
 IO15

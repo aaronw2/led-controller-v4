@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 37,
+    "active_layer": 31,
     "active_layer_preset": "",
     "auto_track_width": false,
     "hidden_nets": [],
@@ -77,22 +77,10 @@
         "window": {
           "display": 0,
           "maximized": false,
-          "pos_x": 766,
-          "pos_y": 1524,
-          "size_x": 2288,
-          "size_y": 1481
-        }
-      },
-      {
-        "name": "led-controller-wrover32.kicad_sch",
-        "open": false,
-        "window": {
-          "display": 1,
-          "maximized": false,
-          "pos_x": 4034,
-          "pos_y": 1858,
-          "size_x": 2746,
-          "size_y": 1568
+          "pos_x": 349,
+          "pos_y": 1523,
+          "size_x": 2692,
+          "size_y": 1712
         }
       }
     ]
