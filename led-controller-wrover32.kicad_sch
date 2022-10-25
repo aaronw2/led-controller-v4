@@ -4044,7 +4044,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 248.92 137.16 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 047dc74e-e9e2-45f6-9556-488a8995ee23)
     (property "Reference" "FID103" (id 0) (at 246.38 134.62 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4061,7 +4061,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 259.08 129.54 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 0a4d98cb-8679-47bd-8a9e-35ea9e5c7a17)
     (property "Reference" "FID102" (id 0) (at 256.54 127 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4094,7 +4094,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 259.08 137.16 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 1967a01c-6e92-4f48-8e69-a615fcdb9d5b)
     (property "Reference" "FID104" (id 0) (at 256.54 134.62 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4682,7 +4682,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 248.92 129.54 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 5739d38c-27ad-4e92-a733-4ac3c5cdfbc2)
     (property "Reference" "FID101" (id 0) (at 246.38 127 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4870,7 +4870,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 120.65 71.12 180) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid 6bd2da5c-902a-4320-ad95-02713ff63169)
     (property "Reference" "TP101" (id 0) (at 123.19 73.1519 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -5350,7 +5350,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 138.43 71.12 180) (unit 1)
-    (in_bom yes) (on_board yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (fields_autoplaced)
     (uuid b1b5a5d8-78d0-4697-850c-abb46419a128)
     (property "Reference" "TP102" (id 0) (at 140.97 73.1519 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -5699,7 +5699,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 259.08 144.78 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid d5e10d95-e39e-4c5e-a0f0-c84e35dec553)
     (property "Reference" "FID106" (id 0) (at 256.54 142.24 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -5997,7 +5997,7 @@
   )
 
   (symbol (lib_id "Mechanical:Fiducial") (at 248.92 144.78 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid eac39e1a-af6b-42e0-9a39-6f8be31bc952)
     (property "Reference" "FID105" (id 0) (at 246.38 142.24 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -6764,7 +6764,7 @@
       (reference "Q101") (unit 2) (value "UMH3N") (footprint "Package_TO_SOT_SMD:SOT-363_SC-70-6")
     )
     (path "/00000000-0000-0000-0000-00005dd65482/00000000-0000-0000-0000-00005ec189c0"
-      (reference "Q301") (unit 1) (value "BSS138") (footprint "Package_TO_SOT_SMD:SOT-323_SC-70")
+      (reference "Q301") (unit 1) (value "BSS138PW,115") (footprint "Package_TO_SOT_SMD:SOT-323_SC-70")
     )
     (path "/db7d5c34-b074-413f-ad06-63dd211660ee/dcc3da9a-89fa-4442-8dc5-a68551f42a6c"
       (reference "Q401") (unit 1) (value "SIL2301-TP") (footprint "Package_TO_SOT_SMD:SOT-23-6")
@@ -6897,6 +6897,9 @@
     )
     (path "/00000000-0000-0000-0000-00005dd65482/c777009c-dc70-47c5-a08f-f52283dbaa4c"
       (reference "TP301") (unit 1) (value "~{RESET}") (footprint "TestPoint:TestPoint_Pad_1.0x1.0mm")
+    )
+    (path "/db7d5c34-b074-413f-ad06-63dd211660ee/0b0416c3-f67c-44fb-8023-2d057f4d2663"
+      (reference "TP401") (unit 1) (value "~{BNO_RST}") (footprint "TestPoint:TestPoint_Pad_1.0x1.0mm")
     )
     (path "/5914596c-e34a-4f04-b746-45b6f8653853"
       (reference "U101") (unit 1) (value "TPS2001DDBVX") (footprint "Package_TO_SOT_SMD:SOT-23-5")
