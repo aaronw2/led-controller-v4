@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 31,
+    "active_layer": 2,
     "active_layer_preset": "",
     "auto_track_width": false,
     "hidden_nets": [],
@@ -66,20 +66,20 @@
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "led-controller-wrover32.kicad_prl",
+    "filename": "led-controller-wrover32-rounded.kicad_prl",
     "version": 3
   },
   "project": {
     "files": [
       {
         "name": "led-controller-wrover32-rounded.kicad_pcb",
-        "open": false,
+        "open": true,
         "window": {
           "display": 0,
           "maximized": false,
-          "pos_x": 196,
-          "pos_y": 1346,
-          "size_x": 1925,
+          "pos_x": 51,
+          "pos_y": 1526,
+          "size_x": 2692,
           "size_y": 1712
         }
       }

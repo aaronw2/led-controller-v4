@@ -1,14 +1,15 @@
 ESP32-Wrover I/Os
 
-IO0: (/program), /INT
-IO2: BNO085 reset
-IO3: Fan PWM
-IO4: 5V I/O J108 pin 8
-IO5: 5V I/O J108 pin 7
-IO6: 5V I/O J108 pin 6
-IO7: 5V I/O J108 pin 5
-IO8: I2S1 BCLK (stereo speaker J304)
-IO9: Micro SD D1
+IO0:  (/program), /INT
+IO1:  SDA, J107 pin 5
+IO2:  SCL, J107 pin 4
+IO3:  Fan PWM
+IO4:  3.3V I/O J108 pin 8
+IO5:  3.3V I/O J108 pin 7
+IO6:  5V I/O J108 pin 6
+IO7:  5V I/O J108 pin 5
+IO8:  I2S1 BCLK (stereo speaker J304)
+IO9:  Micro SD D1
 IO10: Micro SD D0
 IO11: Micro SD CLK
 IO12: Micro SD CMD
@@ -23,9 +24,9 @@ IO20: USB D+
 IO21: Status LED, LED output to J103 pin 2
 IO38: /INT2
 IO39: M_BOOT_LOAD, BNO085 motion sensor
-IO40: I2C SDA, J107 pin 5
-IO41: I2C SCL, J107 pin 4
-IO42: /INT3, J107 pin 3
+IO40: AMP power
+IO41: /INT3
+IO42: BNO085 reset
 IO45: I2S0 BCLK (Microphone)
 IO46: 12V power supply enable high
 IO47: I2S0 WSEL (Microphone)
@@ -75,7 +76,7 @@ both 5V and 12V and both supplies are modulated or controlled by GPIO IO3
 which must be pulled high.  IO3 controls both 5V and 12V simultaneously.
 The fan outputs have diodes to protect against any back EMF.  The 12V comes
 from the same supply and is limited to 1 amp, however it is best to not test
-this.
+this. The PWM output is driven by IO3. Smoothing capacitors are also in place.
 
 I2C:
 The I2C bus uses 2.2K pull-up resistors instead of the more traditional 4.7
@@ -84,6 +85,9 @@ board and having stronger pull-ups should provide better signal integrity.
 There are three interrupt lines that are supported.  Internally, i2c is
 used by the GPIO expander, the motion sensor, and the I2S stereo audio
 amplifier.
+
+I2C is configured such that it can be accessed by the RTC controller, however,
+not all of the interrupt inputs are available.
 
 5V signalling:
 Six GPIOs pass through open-collector level shifters with pull-up resistors.
@@ -137,8 +141,8 @@ SSM2518CPZ: 0x36
 ESP32 GPIO pins by function:
 
 I2C:
-SCL: IO41
-SDA: IO42
+SCL: IO2
+SDA: IO1
 INT: IO0
 INT2: IO38
 INT3: IO42
@@ -194,4 +198,4 @@ IO7
 IO15
 IO16
 
-Program: IO0, INT
+Program: IO0, /INT

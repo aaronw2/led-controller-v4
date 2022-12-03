@@ -66,25 +66,7 @@
         }
       ],
       "drc_exclusions": [
-        "annular_width|73625000|50675000|9afe83a3-52ce-4d66-aed5-5d562746e849|00000000-0000-0000-0000-000000000000",
-        "copper_edge_clearance|76049419|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|ace635a3-9297-4f17-bfe4-1aacba9aacf5",
-        "copper_edge_clearance|76750000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|a258122f-9411-4222-8121-b73e2be24763",
-        "copper_edge_clearance|77450000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|d0474a9f-5a1c-4c89-96a5-a4b8303373b5",
-        "copper_edge_clearance|78150000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|1bd1b1c4-4b2b-4f11-a34a-f52406ca6bf3",
-        "copper_edge_clearance|78900000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|530b20e4-6876-45a9-9fd3-b1ec4e403ce1",
-        "copper_edge_clearance|79600000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|8327d8c9-4331-4e47-a7be-77c79064e2aa",
-        "silk_over_copper|70000000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|ba90e7eb-b788-4dc7-8594-4ac59828c5de",
-        "silk_over_copper|70050000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|8fe08aef-a957-4b71-aab0-297a7e58db99",
-        "silk_over_copper|88000000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|b1eb6cae-b989-4911-8fcd-3631a7067a01",
-        "silk_over_copper|88050000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|f097f8c5-5dbd-4710-99ca-67946a0a03bd",
-        "silk_overlap|73222427|49175000|0e185c96-f097-4a70-91ea-86d19b82d623|5038ad25-5997-4799-88f7-f8b2322c334f",
-        "silk_overlap|78660000|58725000|9bf38ac3-cee5-430f-af69-3cdd6a82626d|2fb87a4a-6ff9-46e0-b6fa-cd5e8b1e620f",
-        "silk_overlap|78725000|58725000|2fb87a4a-6ff9-46e0-b6fa-cd5e8b1e620f|9bf38ac3-cee5-430f-af69-3cdd6a82626d",
-        "silk_overlap|90295238|60464285|13a75e3a-85ed-4c52-a8e0-9575ca44d9d5|85dcd37c-88b7-4727-b8cd-993dc56679ed",
-        "silk_overlap|90300000|60050000|ba1bf4ea-c7dd-48af-bc36-8c54edd74830|85dcd37c-88b7-4727-b8cd-993dc56679ed",
-        "silk_overlap|90395000|60050000|85dcd37c-88b7-4727-b8cd-993dc56679ed|ba1bf4ea-c7dd-48af-bc36-8c54edd74830",
-        "silk_overlap|90395000|63496667|85dcd37c-88b7-4727-b8cd-993dc56679ed|e3b4cab9-0752-43d3-8839-f3ddc1478b5b",
-        "silk_overlap|90395000|63496667|e3b4cab9-0752-43d3-8839-f3ddc1478b5b|85dcd37c-88b7-4727-b8cd-993dc56679ed"
+        "annular_width|73625000|50675000|9afe83a3-52ce-4d66-aed5-5d562746e849|00000000-0000-0000-0000-000000000000"
       ],
       "meta": {
         "filename": "board_design_settings.json",
@@ -137,7 +119,7 @@
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.12,
-        "min_copper_edge_clearance": 0.3,
+        "min_copper_edge_clearance": 0.075,
         "min_hole_clearance": 0.19999999999999998,
         "min_hole_to_hole": 0.19999999999999998,
         "min_microvia_diameter": 0.19999999999999998,
@@ -162,8 +144,7 @@
         0.6,
         0.7,
         0.8,
-        1.0,
-        1.2
+        1.0
       ],
       "via_dimensions": [
         {
@@ -173,14 +154,6 @@
         {
           "diameter": 0.325,
           "drill": 0.2
-        },
-        {
-          "diameter": 0.55,
-          "drill": 0.25
-        },
-        {
-          "diameter": 0.6,
-          "drill": 0.25
         },
         {
           "diameter": 0.6,
@@ -414,7 +387,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "led-controller-wrover32.kicad_pro",
+    "filename": "led-controller-wrover32-rounded.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -456,82 +429,6 @@
       },
       {
         "bus_width": 12.0,
-        "clearance": 0.16,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "Small_Signal",
-        "nets": [
-          "/DTR",
-          "/FVUSB",
-          "/IO15_H",
-          "/IO15_HO",
-          "/IO16_H",
-          "/IO16_HO",
-          "/IO4_CAP",
-          "/IO6_H",
-          "/IO6_HO",
-          "/IO7_H",
-          "/IO7_HO",
-          "/Motion and GPIO/CAP",
-          "/Motion and GPIO/COM2",
-          "/Motion and GPIO/COM3",
-          "/Motion and GPIO/P0_0",
-          "/Motion and GPIO/P0_1",
-          "/Motion and GPIO/P0_10",
-          "/Motion and GPIO/P0_11",
-          "/Motion and GPIO/P0_12",
-          "/Motion and GPIO/P0_13",
-          "/Motion and GPIO/P0_14",
-          "/Motion and GPIO/P0_15",
-          "/Motion and GPIO/P0_2",
-          "/Motion and GPIO/P0_3",
-          "/Motion and GPIO/P0_4",
-          "/Motion and GPIO/P0_5",
-          "/Motion and GPIO/P0_6",
-          "/Motion and GPIO/P0_7",
-          "/Motion and GPIO/P0_8",
-          "/Motion and GPIO/P0_9",
-          "/Motion and GPIO/SW_12V",
-          "/Motion and GPIO/SW_5V",
-          "/Motion and GPIO/S_SCL",
-          "/Motion and GPIO/S_SDA",
-          "/Motion and GPIO/XIN32",
-          "/Motion and GPIO/~{BNO085_RST}",
-          "/Motion and GPIO/~{EN_FAN}",
-          "/RTS",
-          "/Reset, Boot, Amp, and SD Card/PGM_IO0_DRV",
-          "/STS_DO",
-          "AMP_PWR",
-          "EN_12V",
-          "IO16",
-          "SCL",
-          "SDA",
-          "SD_CLK",
-          "SD_CMD",
-          "SD_D0",
-          "SD_D1",
-          "SD_D2",
-          "SD_D3",
-          "~{INT2}",
-          "~{INT3}",
-          "~{INT}",
-          "~{M_BOOT_LOAD}",
-          "~{RESET}",
-          "~{RST_BNO085}"
-        ],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "via_diameter": 0.55,
-        "via_drill": 0.25,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -542,7 +439,9 @@
         "name": "USB",
         "nets": [
           "/D+",
-          "/D-"
+          "/D-",
+          "/USB_DN",
+          "/USB_DP"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
@@ -597,7 +496,16 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "i2c_gpio",
-        "nets": [],
+        "nets": [
+          "/Motion and GPIO/P0_0",
+          "/Motion and GPIO/P0_1",
+          "/Motion and GPIO/P0_2",
+          "/Motion and GPIO/P0_3",
+          "/Motion and GPIO/P0_4",
+          "/Motion and GPIO/P0_5",
+          "/Motion and GPIO/P0_6",
+          "/Motion and GPIO/P0_7"
+        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
@@ -616,6 +524,8 @@
         "microvia_drill": 0.15,
         "name": "i2s",
         "nets": [
+          "/I2S0_BCLK",
+          "/I2S0_DIN",
           "I2S1_BCLK",
           "I2S1_DOUT",
           "I2S1_WSEL"
@@ -694,10 +604,6 @@
     [
       "00000000-0000-0000-0000-00005dd65482",
       "Reset, Boot, Amp, and SD Card"
-    ],
-    [
-      "5505a361-61d2-495c-8c51-a01be356f5b1",
-      "CPU"
     ],
     [
       "db7d5c34-b074-413f-ad06-63dd211660ee",

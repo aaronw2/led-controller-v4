@@ -1,0 +1,18 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid 30da9577-ed6d-4d9d-8176-c9e12e27ce71)
+
+  (paper "USLetter")
+
+  (title_block
+    (title "Wroom32 LED Controller")
+    (date "2022-04-27")
+    (rev "4.0")
+    (company "Aaron Williams")
+    (comment 1 "Copyright © 2020 by Aaron Williams")
+  )
+
+  (lib_symbols
+  )
+
+)
