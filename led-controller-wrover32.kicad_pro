@@ -74,8 +74,12 @@
         "copper_edge_clearance|78900000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|530b20e4-6876-45a9-9fd3-b1ec4e403ce1",
         "copper_edge_clearance|79600000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|8327d8c9-4331-4e47-a7be-77c79064e2aa",
         "silk_over_copper|70000000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|ba90e7eb-b788-4dc7-8594-4ac59828c5de",
+        "silk_over_copper|70000000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|c8e31847-fab6-4d74-8572-648fcbb31037",
         "silk_over_copper|70050000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|8fe08aef-a957-4b71-aab0-297a7e58db99",
+        "silk_over_copper|70050000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|f212971b-d983-4c88-ac0f-555024298295",
+        "silk_over_copper|88000000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|520bbf06-b9a2-4ede-95f4-18af469bd9f4",
         "silk_over_copper|88000000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|b1eb6cae-b989-4911-8fcd-3631a7067a01",
+        "silk_over_copper|88050000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|eb1cac38-8b4a-4925-928c-889597be8b56",
         "silk_over_copper|88050000|30000000|491d1626-acaf-4e36-9771-e30bcbb95e7f|f097f8c5-5dbd-4710-99ca-67946a0a03bd",
         "silk_overlap|73222427|49175000|0e185c96-f097-4a70-91ea-86d19b82d623|5038ad25-5997-4799-88f7-f8b2322c334f",
         "silk_overlap|78660000|58725000|9bf38ac3-cee5-430f-af69-3cdd6a82626d|2fb87a4a-6ff9-46e0-b6fa-cd5e8b1e620f",
@@ -533,20 +537,22 @@
       {
         "bus_width": 12.0,
         "clearance": 0.2,
-        "diff_pair_gap": 0.25,
+        "diff_pair_gap": 0.2,
         "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.23,
+        "diff_pair_width": 0.25,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "USB",
         "nets": [
           "/D+",
-          "/D-"
+          "/D-",
+          "USB_DN",
+          "USB_DP"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.25,
         "via_diameter": 0.604,
         "via_drill": 0.3,
         "wire_width": 6.0
@@ -616,6 +622,9 @@
         "microvia_drill": 0.15,
         "name": "i2s",
         "nets": [
+          "I2S0_BCLK",
+          "I2S0_DIN",
+          "I2S0_WSEL",
           "I2S1_BCLK",
           "I2S1_DOUT",
           "I2S1_WSEL"
